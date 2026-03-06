@@ -1,7 +1,7 @@
 export default function Hero() {
     return (
         <section className="hero">
-            <h1>Track Your Caffeine, Master Your Energy <i class="fa-solid fa-mug-hot"></i></h1>
+            <h1>Track Your Caffeine, Master Your Energy <i className="fa-solid fa-mug-hot"></i></h1>
 
             <div className="benefits-list">
                 <h3>
