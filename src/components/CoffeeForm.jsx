@@ -28,7 +28,7 @@ export default function CoffeeForm() {
                     <button onClick={() => {
                         setSelectedCoffee(option.name)
                         setShowCoffeeTypes(false)
-                    }} className={"btn-card btn-primary " + (option.name === selectedCoffee ? 'btn-card-selected' : '')} key={optionIndex}>
+                    }} className={"btn-card btn-card-primary " + (option.name === selectedCoffee ? 'btn-card-selected' : '')} key={optionIndex}>
                         <h4>{option.name}</h4>
                         <p>{option.caffeine} mg</p>
                     </button>
@@ -36,7 +36,7 @@ export default function CoffeeForm() {
                 <button onClick={() => {
                     setShowCoffeeTypes(true)
                     setSelectedCoffee(null)
-                }} className={"btn-card btn-primary " + (showCoffeeTypes ? 'btn-card-selected' : '')}>
+                }} className={"btn-card btn-card-primary " + (showCoffeeTypes ? 'btn-card-selected' : '')}>
                     <h4>Other</h4>
                     <p>n/a</p>
                 </button>
@@ -52,7 +52,7 @@ export default function CoffeeForm() {
                         </option>
                     ))}
                 </select>
-        )}
+            )}
             <h4>Add the cost ($)</h4>
             <input type="number" value={coffeeCost} onChange={(e) => {
                 setCoffeeCost(e.target.value)
