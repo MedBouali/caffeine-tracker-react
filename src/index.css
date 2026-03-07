@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-    --background-primary: #f3f5f4;
+    --background-primary: #fafafa;
     --background-secondary: rgb(29, 19, 11);
-    --background-secondary-transparent: rgba(44, 24, 10, 0.9);
+    --background-secondary-transparent: rgba(44, 24, 10, 0.3);
     --background-tertiary: #0b0b0b;
     --background-accent: #ce940e;
     --background-compliment: '';
@@ -26,8 +26,9 @@
     --color-highlight: #fef9c3;
     --color-white: #ffffff;
 
-    --gradient-start: #161a35;
-    --gradient-end: #444e92;
+    --gradient-start: #ffffff;
+    --gradient-end: #fae0a3;
+    --gradient-end: #fbe0ca;
 
     --border-pricardmary: #c1c1c1;
     --border-secondary: rgba(44, 24, 10, 1);
@@ -77,26 +78,31 @@ h1 {
 h2 {
   font-size: 1.8rem;
   font-weight: 600;
+  line-height: 1.2rem;
 }
 
 h3 {
   font-size: 1.5rem;
   font-weight: 500;
+  line-height: 1.2rem;
 }
 
 h4 {
   font-size: 1rem;
   font-weight: 500;
+  line-height: 1.2rem;
 }
 
 h5 {
   font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.2rem;
 }
 
 h6 {
   font-size: 0.75rem;
   font-weight: 500;
+  line-height: 1.2rem;
 }
 
 .header {
@@ -163,24 +169,29 @@ h6 {
   background-color: var(--background-accent);
 }
 
-.form-section {
+.info-section h3 {
+  line-height: 3rem;
+
+}
+
+.form-section, .stats-section {
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: start !important;
   gap: 1.5rem;
-  padding: 4rem 15vw !important;
+  padding: 4rem 9vw !important;
   background-color: var(--background-primary);
   color: var(--color-primary);
 }
 
-.form-section .form-header {
+.form-section .form-header, .stats-section .stats-header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.form-section .coffee-grid {
+.form-section .coffee-grid, .stats-section .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -194,18 +205,26 @@ h6 {
   width: 100%;
 }
 
+.col-span-2 {
+  grid-column: span 2;
+}
+
 /* tablets */
 @media (max-width: 900px) {
-  .form-section .coffee-grid {
+  .form-section .coffee-grid, .stats-section .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* phones */
 @media (max-width: 500px) {
-  .form-section .coffee-grid {
+  .form-section .coffee-grid, .stats-section .stats-grid {
     grid-template-columns: 1fr;
   }
+
+  .col-span-2 {
+    grid-column: span 1;
+  }  
 }
 
 .card {
@@ -213,13 +232,54 @@ h6 {
   flex-direction: column;
   align-items: start;
   gap: 1.5rem;
-  background: var(--background-primary);
+  background: var(--color-white);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: var(--border-radius-large);
-  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.22);
   padding: 2rem;
   color: var(--color-primary);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--background-accent), var(--background-accent));
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 70%);
+  opacity: 0.85;
+  z-index: -1;
+}
+
+.card-table {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  background: var(--color-white);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: var(--border-radius-small);
+  box-shadow: 0 0 1px 0px rgba(0, 0, 0, 0.22);
+  color: var(--color-primary);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stat-text {
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .btn, .btn-card {
@@ -308,4 +368,20 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--border-accent);
+}
+
+table {
+  width: 100% !important;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: var(--background-secondary);
+  color: var(--color-white);
+}
+
+table th, table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-tertiary);
 }
