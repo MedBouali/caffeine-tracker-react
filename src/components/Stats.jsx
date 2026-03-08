@@ -24,7 +24,6 @@ export default function Stats() {
     return (
         <div className="stats-section">
             <div className="stats-header">
-                <i className="fa-solid fa-chart-simple"></i>
                 <h2>Stats</h2>
             </div>
             <div className="stats-grid">

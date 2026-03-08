@@ -3,10 +3,8 @@ export default function Layout(props) {
     const header = <header className="header">
         <div>
             <h1>CaffeineLog</h1>
-            <p>Track your caffeine. Understand your habits.</p>
         </div>
         <button className="btn btn-outline-primary">
-            <i className="fa-solid fa-arrow-right-to-bracket"></i>
             Login
         </button>
     </header>

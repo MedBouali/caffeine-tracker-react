@@ -19,7 +19,6 @@ export default function CoffeeForm() {
     return (
         <section className="form-section">
             <div className="form-header">
-                <i className="fa-solid fa-pencil"></i>
                 <h2>Start Tracking Today</h2>
             </div>
             <h4>Select coffee type</h4>
@@ -28,17 +27,27 @@ export default function CoffeeForm() {
                     <button onClick={() => {
                         setSelectedCoffee(option.name)
                         setShowCoffeeTypes(false)
-                    }} className={"btn-card btn-card-primary " + (option.name === selectedCoffee ? 'btn-card-selected' : '')} key={optionIndex}>
-                        <h4>{option.name}</h4>
-                        <p>{option.caffeine} mg</p>
+                    }} className={"btn-card " + (option.name === selectedCoffee ? 'btn-card-selected' : '')} key={optionIndex}>
+                        <div className="btn-card-icon">
+                            <i className="fa fa-coffee"></i>
+                        </div>
+                        <div className="btn-card-text">
+                            <h4>{option.name}</h4>
+                            <p>{option.caffeine} mg</p>
+                        </div>
                     </button>
                 ))}
                 <button onClick={() => {
                     setShowCoffeeTypes(true)
                     setSelectedCoffee(null)
-                }} className={"btn-card btn-card-primary " + (showCoffeeTypes ? 'btn-card-selected' : '')}>
-                    <h4>Other</h4>
-                    <p>n/a</p>
+                }} className={"btn-card " + (showCoffeeTypes ? 'btn-card-selected' : '')}>
+                    <div className="btn-card-icon">
+                        <i className="fa fa-coffee"></i>
+                    </div>
+                    <div className="btn-card-text">
+                        <h4>Other</h4>
+                        <p>n/a</p>
+                    </div>
                 </button>
             </div>
             {showCoffeeTypes && (
