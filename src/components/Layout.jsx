@@ -1,10 +1,18 @@
+import Modal from "./Modal"
+import Authentication from "./Authentication"
+import { useState } from "react"
+
 export default function Layout(props) {
     const { children } = props
+    const [showModal, setShowModal] = useState(false)
+
     const header = <header className="header">
         <div>
             <h1>CaffeineLog</h1>
         </div>
-        <button className="btn btn-outline-primary">
+        <button onClick={() => {
+            setShowModal(true)
+        }} className="btn btn-outline-primary">
             Login
         </button>
     </header>
@@ -14,6 +22,11 @@ export default function Layout(props) {
 
     return (
         <>
+            {showModal && (
+                <Modal handleCloseModal={() => setShowModal(false)}>
+                    <Authentication />
+                </Modal>
+            )}
             {header}
             <main>
                 {children}

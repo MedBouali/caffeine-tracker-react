@@ -5,7 +5,7 @@ import History from './components/History'
 import Hero from './components/Hero'
 
 function App() {
-  const isAuthenticated = true
+  const isAuthenticated = false
   const authenticatedContent = (
     <>
       <Stats />
@@ -16,7 +16,7 @@ function App() {
   return (
     <Layout>
       <Hero />
-      <CoffeeForm />
+      <CoffeeForm isAuthenticated={isAuthenticated} />
       {isAuthenticated && authenticatedContent}
     </Layout>
   )
