@@ -83,7 +83,7 @@ export default function Stats() {
                                 <tr key={index}>
                                     <td>{coffee.coffeeName}</td>
                                     <td>{coffee.count}</td>
-                                    <td>{coffee.percentage}%</td>
+                                    <td>{coffee.percentage}</td>
                                 </tr>
                         )})}
                     </tbody>

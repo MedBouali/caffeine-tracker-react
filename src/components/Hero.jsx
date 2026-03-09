@@ -13,6 +13,9 @@ export default function Hero() {
             </div>
 
             <button className="btn btn-primary">Get Started</button>
+            <span className="wave"></span>
+            <span className="wave"></span>
+            <span className="wave"></span>
         </section> 
     )
 }
