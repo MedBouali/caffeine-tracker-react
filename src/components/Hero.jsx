@@ -5,11 +5,15 @@ import Authentication from "./Authentication"
 export default function Hero() {
     const [showModal, setShowModal] = useState(false)
 
+    function handleCloseModal() {
+        setShowModal(false)
+    }
+
     return (
         <section className="hero">
             {showModal && (
-                <Modal handleCloseModal={() => setShowModal(false)}>
-                    <Authentication />
+                <Modal handleCloseModal={handleCloseModal}>
+                    <Authentication handleCloseModal={handleCloseModal} />
                 </Modal>
             )}
             <h1>Track Your Caffeine, Understand Your Habits.</h1>
