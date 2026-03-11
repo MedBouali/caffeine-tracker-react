@@ -322,10 +322,8 @@ h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-.stats-section h4 {
-  margin-top: 2rem;
-  padding: 0;
-  line-height: 1.2rem;
+.stats-section .stats-grid {
+  margin-bottom: 2rem;
 }
 
 .history-section .coffee-history {
