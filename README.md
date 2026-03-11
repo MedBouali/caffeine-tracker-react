@@ -31,11 +31,12 @@ A lightweight React + Firebase app to track your daily caffeine intake, view sta
 
 ## Installation
 
+```bash
 # clone
 git clone https://github.com/MedBouali/caffeine-tracker-react.git
 cd caffeine-tracker-react
 
-# install
+# install dependencies
 npm install
 
 # run dev
