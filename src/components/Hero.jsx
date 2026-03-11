@@ -2,7 +2,8 @@ import { useState } from "react"
 import Modal from "./Modal"
 import Authentication from "./Authentication"
 
-export default function Hero() {
+export default function Hero(props) {
+    const {isAuthenticated} = props
     const [showModal, setShowModal] = useState(false)
 
     function handleCloseModal() {
@@ -27,7 +28,9 @@ export default function Hero() {
                 <p><i className="fa-solid fa-check"></i> Understanding your daily caffeine habits</p>
             </div>
 
-            <button onClick={() => setShowModal(true)} className="btn btn-primary">Get Started</button>
+            {!isAuthenticated && (
+                <button onClick={() => setShowModal(true)} className="btn btn-primary">Get Started</button>
+            )}
             <span className="wave"></span>
             <span className="wave"></span>
             <span className="wave"></span>

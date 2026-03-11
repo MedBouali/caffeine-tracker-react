@@ -18,12 +18,12 @@ function App() {
 
   return (
     <Layout>
-      <Hero />
+      <Hero isAuthenticated={isAuthenticated} />
       <CoffeeForm isAuthenticated={isAuthenticated} />
       {(isAuthenticated && isLoading) && (
         <p className="text-center">Loading...</p>
       )}
-      {(isAuthenticated && isData) && authenticatedContent}
+      {(isAuthenticated && isData) && (authenticatedContent)}
     </Layout>
   )
 }

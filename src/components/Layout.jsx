@@ -12,15 +12,21 @@ export default function Layout(props) {
     const header = <header className="header">
         <div>
             <h1>CaffeineLog</h1>
+            <p>Track Your Caffeine, Understand Your Habits</p>
         </div>
         {globalUser ? (
-            <button onClick={logout} className="btn btn-outline-primary">
-                Logout
-            </button>
+            <div className="user-info">
+                <div className="user-email">
+                    <h5>{globalUser.email}</h5>
+                </div>
+                <button onClick={logout} className="btn btn-outline-primary">
+                    Logout
+                </button>
+            </div>
         ) : (
             <button onClick={() => {
                 setShowModal(true)
-            }} className="btn btn-outline-primary">
+            }} className="btn btn-primary">
                 Login
             </button>
         )}

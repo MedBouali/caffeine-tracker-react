@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, use } from "react";
+import { useState, useEffect, createContext, useContext } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, sendPasswordResetEmail, onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
@@ -6,13 +6,13 @@ import { doc, getDoc } from "firebase/firestore";
 const AuthContext = createContext()
 
 export function useAuth() {
-    return use(AuthContext)
+    return useContext(AuthContext)
 }
 
 export function AuthProvider(props) {
     const { children } = props
     const [globalUser, setGlobalUser] = useState(null)
-    const [globaData, setGlobalData] = useState(null)
+    const [globalData, setGlobalData] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
     function signUp(email, password) {
@@ -29,11 +29,7 @@ export function AuthProvider(props) {
         return signOut(auth)
     }
 
-    function resetPassword(email) {
-        return sendPasswordResetEmail(auth, email)
-    }
-
-    const value = { globalUser, globaData, setGlobalData, isLoading, signUp, login, logout }
+    const value = { globalUser, globalData, setGlobalData, isLoading, signUp, login, logout }
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async(user) =>{
@@ -52,8 +48,8 @@ export function AuthProvider(props) {
 
                 let firebaseData = {}
                 if (docSnap.exists()) {
-                    console.log("Found user data")
                     firebaseData = docSnap.data()
+                    console.log("Found user data:", firebaseData)
                 }
                 setGlobalData(firebaseData)
             } catch(err) {
