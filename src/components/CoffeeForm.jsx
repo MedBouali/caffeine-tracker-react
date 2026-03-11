@@ -110,9 +110,14 @@ export default function CoffeeForm(props) {
                 </button>
             </div>
             {showCoffeeTypes && (
-                <select onChange={(e) => {
-                    setSelectedCoffee(e.target.value)
-                }} name="coffee-list" id="coffee-list">
+                <select
+                    value={selectedCoffee || ''} 
+                    onChange={(e) => {
+                        setSelectedCoffee(e.target.value)
+                    }}
+                    name="coffee-list"
+                    id="coffee-list"
+                >
                     <option value={null}>Select type</option>
                     {coffeeOptions.map((option, optionIndex) => (
                         <option key={optionIndex} value={option.name}>
@@ -122,7 +127,7 @@ export default function CoffeeForm(props) {
                 </select>
             )}
             <h4>Add the cost ($)</h4>
-            <input required type="number" value={coffeeCost} onChange={(e) => {
+            <input type="number" value={coffeeCost} onChange={(e) => {
                 setCoffeeCost(e.target.value)
             }} placeholder="4.50" />
             <h4>Time since consumption</h4>
