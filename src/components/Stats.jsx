@@ -2,10 +2,13 @@ import { calculateCoffeeStats, calculateCurrentCaffeineLevel, getTopThreeCoffees
 import { useAuth } from "../context/AuthContext"
 
 function StatCard(props) {
-    const {lg, title, children} = props
+    const {lg, icon, iconClass, title, children} = props
 
     return (
         <div className={"card " + (lg ? "col-span-2" : "")}>
+            <div className={iconClass}>
+                <i className={icon}></i>
+            </div>
             <h4>{title}</h4>
             {children}
         </div>
@@ -29,7 +32,12 @@ export default function Stats() {
                 <h2>Stats</h2>
             </div>
             <div className="stats-grid">
-                <StatCard lg title="Active Caffeine Level">
+                <StatCard
+                    lg
+                    icon="fa-solid fa-bolt"
+                    iconClass="icon icon-primary"
+                    title="Active Caffeine Level"
+                >
                     <div className="status">
                         <p>
                             <span className="stat-text">
@@ -41,28 +49,44 @@ export default function Stats() {
                     </div>
                     <p>{statusLevels[warningLevel].description}</p>
                 </StatCard>
-                <StatCard title="Daily Caffeine">
+                <StatCard
+                    icon="fa-solid fa-mug-hot"
+                    iconClass="icon icon-secondary"
+                    title="Daily Caffeine Intake"
+                >
                     <p>
                         <span className="stat-text">
                             {stats.daily_caffeine}
                         </span>mg
                     </p>
                 </StatCard>
-                <StatCard title="Avg # of Coffees">
+                <StatCard
+                    icon="fa-solid fa-layer-group"
+                    iconClass="icon icon-compliment"
+                    title="Avg # of Coffees"
+                >
                     <p>
                         <span className="stat-text">
                             {stats.average_coffees}
                         </span>
                     </p>
                 </StatCard>
-                <StatCard title="Daily Cost ($)">
+                <StatCard
+                    icon="fa-solid fa-calendar-day"
+                    iconClass="icon icon-success"
+                    title="Daily Cost ($)"
+                >
                     <p>
                         $ <span className="stat-text">
                             {stats.daily_cost}
                         </span>
                     </p>
                 </StatCard>
-                <StatCard title="Total Cost ($)">
+                <StatCard
+                    icon="fa-solid fa-wallet"
+                    iconClass="icon icon-danger"
+                    title="Total Cost ($)"
+                >
                     <p>
                         $ <span className="stat-text">
                             {stats.total_cost}

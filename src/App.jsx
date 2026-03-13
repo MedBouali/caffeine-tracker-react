@@ -19,11 +19,13 @@ function App() {
   return (
     <Layout>
       <Hero isAuthenticated={isAuthenticated} />
-      <CoffeeForm isAuthenticated={isAuthenticated} />
-      {(isAuthenticated && isLoading) && (
-        <p className="text-center">Loading...</p>
-      )}
-      {(isAuthenticated && isData) && (authenticatedContent)}
+      <div className="container">
+        <CoffeeForm isAuthenticated={isAuthenticated} />
+        {(isAuthenticated && isLoading) && (
+          <p className="text-center">Loading...</p>
+        )}
+        {(isAuthenticated && isData) && (authenticatedContent)}
+      </div>
     </Layout>
   )
 }

@@ -39,7 +39,7 @@ export default function Authentication(props) {
         <div className="authentication-container">
             <h2 className="sign-up-text">{isRegistration ? "Sign Up" : "Login"}</h2>
             <p>{isRegistration ? "Create your account" : "Sign in to your account"}</p>
-            {error && <div className="error-card">{error}</div>}
+            {error && <div className="alert-danger">{error}</div>}
             <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
             <input value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Password" type="password" />
             <button onClick={handleAuthentication} className="btn btn-primary">

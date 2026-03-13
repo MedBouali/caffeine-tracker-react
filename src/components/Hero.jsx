@@ -29,11 +29,8 @@ export default function Hero(props) {
             </div>
 
             {!isAuthenticated && (
-                <button onClick={() => setShowModal(true)} className="btn btn-primary">Get Started</button>
+                <button onClick={() => setShowModal(true)} className="btn btn-accent">Get Started</button>
             )}
-            <span className="wave"></span>
-            <span className="wave"></span>
-            <span className="wave"></span>
         </section> 
     )
 }

@@ -79,7 +79,7 @@ export default function CoffeeForm(props) {
             </div>
             <h4>Select coffee type</h4>
             {error && (
-                <div className="error-card">{error}</div>
+                <div className="alert-danger">{error}</div>
             )}
             <div className="coffee-grid ">
                 {coffeeOptions.slice(0, 5).map((option, optionIndex) => (
